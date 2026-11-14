@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fffaf3">
+<title>ODDLY — Your daily dose of different</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap');
+
+:root {
+  --purple: #8063df;
+  --coral: #ff806f;
+  --yellow: #ffd75e;
+  --blue: #75c8ef;
+  --mint: #a9dfc2;
+  --cream: #fffaf3;
+  --ink: #28243b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+}
+
+button { font: inherit; cursor: pointer; }
+
+header {
+  max-width: 1100px;
+  margin: auto;
+  padding: 24px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font: 700 34px 'Fredoka', sans-serif;
+  letter-spacing: 1px;
+  color: var(--purple);
+}
+
+.points {
+  background: white;
+  border-radius: 30px;
+  padding: 10px 16px;
+  font-weight: 800;
+  box-shadow: 0 4px 15px #29243b10;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px 6% 110px;
+}
+
+.intro { margin: 25px 0 28px; }
+
+.intro h1 {
+  font: 700 clamp(38px, 7vw, 62px) 'Fredoka', sans-serif;
+  line-height: 1.05;
+  margin: 0 0 10px;
+}
+
+.intro h1 span { color: var(--purple); }
+
+.intro p { color: #777184; font-size: 16px; }
+
+.feature {
+  background: var(--purple);
+  color: white;
+  border-radius: 28px;
+  padding: 30px;
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.feature h2 {
+  font: 700 32px 'Fredoka', sans-serif;
+  margin: 10px 0;
+}
+
+.feature p { max-width: 350px; line-height: 1.6; }
+
+.feature .art {
+  font-size: clamp(65px, 13vw, 115px);
+  transform: rotate(-12deg);
+  filter: drop-shadow(0 8px 3px #39258a33);
+}
+
+.tag {
+  background: #ffffff30;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.primary {
+  background: var(--yellow);
+  color: var(--ink);
+  border: 0;
+  border-radius: 30px;
+  padding: 12px 21px;
+  font-weight: 800;
+  margin-top: 8px;
+  transition: transform .2s;
+}
+
+.primary:hover { transform: scale(1.05); }
+
+.section-title {
+  font: 700 26px 'Fredoka', sans-serif;
+  margin: 38px 0 16px;
+}
+
+.moods {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+}
+
+.mood {
+  border: 0;
+  border-radius: 20px;
+  min-height: 125px;
+  padding: 18px 10px;
+  text-align: center;
+  color: var(--ink);
+  font-weight: 800;
+  transition: transform .2s;
+}
+
+.mood:hover { transform: translateY(-5px); }
+.mood span { display: block; font-size: 34px; margin-bottom: 9px; }
+.mood:nth-child(1) { background: #ffd5cc; }
+.mood:nth-child(2) { background: #d9d0ff; }
+.mood:nth-child(3) { background: #c8e9fa; }
+.mood:nth-child(4) { background: #ffebad; }
+
+.mystery {
+  background: #e3f3e9;
+  border-radius: 25px;
+  padding: 25px;
+  margin-top: 32px;
+}
+
+.mystery h2 {
+  font: 700 25px 'Fredoka', sans-serif;
+  margin: 8px 0;
+}
+
+.answer {
+  display: none;
+  font-weight: 800;
+  margin-top: 14px;
+  color: #397d58;
+}
+
+.characters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.character {
+  background: white;
+  padding: 20px 10px;
+  text-align: center;
+  border-radius: 22px;
+  box-shadow: 0 5px 20px #29243b08;
+}
+
+.character span { font-size: 42px; display: block; }
+.character strong { display: block; margin-top: 8px; }
+.character small { color: #888; }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffffed;
+  backdrop-filter: blur(12px);
+  border-top: 1px solid #eee8e2;
+  display: flex;
+  justify-content: center;
+  gap: clamp(20px, 8vw, 75px);
+  padding: 14px 10px;
+}
+
+footer button {
+  border: 0;
+  background: none;
+  color: #777184;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+footer button:first-child { color: var(--purple); }
+
+#message {
+  margin-top: 14px;
+  font-weight: 700;
+  color: var(--purple);
+  min-height: 24px;
+}
+
+@media (max-width: 600px) {
+  header { padding: 20px 5%; }
+  main { padding: 15px 5% 100px; }
+  .moods { grid-template-columns: repeat(2, 1fr); }
+  .feature { padding: 23px; }
+  .feature h2 { font-size: 27px; }
+  .characters { gap: 8px; }
+  .character { padding: 16px 5px; }
+  .character small { font-size: 10px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="logo">ODDLY ✳</div>
+  <div class="points">⭐ <span id="points">0</span> points</div>
+</header>
+
+<main>
+  <section class="intro">
+    <h1>Play. Explore.<br><span>Be you.</span></h1>
+    <p>Your daily dose of different starts right here.</p>
+  </section>
+  
