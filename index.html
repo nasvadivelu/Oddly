@@ -241,4 +241,112 @@ footer button:first-child { color: var(--purple); }
     <h1>Play. Explore.<br><span>Be you.</span></h1>
     <p>Your daily dose of different starts right here.</p>
   </section>
+
   
+  <section class="feature">
+    <div class="feature-content">
+      <span class="tag">🚀 TODAY'S FEATURE</span>
+      <h2>The 5-second challenge</h2>
+      <p>Ready for a tiny burst of fun?</p>
+      <button onclick="challenge()">Let's play ✨</button>
+      <p id="challenge-result"></p>
+    </div>
+    <div class="feature-art">👾</div>
+  </section>
+
+  <section class="section">
+    <h2>What's your mood?</h2>
+    <p>Pick a vibe. We'll find your fun.</p>
+    <div class="moods">
+      <button onclick="chooseMood('laugh')">😂<br>Make me laugh</button>
+      <button onclick="chooseMood('brain')">🧠<br>Test my brain</button>
+      <button onclick="chooseMood('discover')">🔮<br>Discover me</button>
+      <button onclick="chooseMood('surprise')">🎁<br>Surprise me</button>
+    </div>
+    <p id="mood-result"></p>
+  </section>
+
+  <section class="mystery">
+    <span class="tag">🎁 DAILY MYSTERY</span>
+    <h2>A little brain teaser...</h2>
+    <p>What has a face and two hands, but no arms or legs?</p>
+    <button onclick="reveal()">Reveal the answer</button>
+    <p id="answer"></p>
+  </section>
+
+  <section class="section">
+    <h2>Meet your Oddlings</h2>
+    <p>Three little characters. Endless weirdness.</p>
+    <div class="characters">
+      <div class="character">
+        <div class="character-face">👽</div>
+        <h3>Bloop</h3>
+        <small>The curious one</small>
+      </div>
+      <div class="character">
+        <div class="character-face">👻</div>
+        <h3>Fizz</h3>
+        <small>The silly one</small>
+      </div>
+      <div class="character">
+        <div class="character-face">🤖</div>
+        <h3>Zippy</h3>
+        <small>The clever one</small>
+      </div>
+    </div>
+  </section>
+</main>
+
+<nav class="bottom-nav">
+  <button onclick="home()">🏠<span>Home</span></button>
+  <button onclick="chooseMood('brain')">🎮<span>Games</span></button>
+  <button onclick="chooseMood('discover')">✨<span>Discover</span></button>
+  <button onclick="reveal()">⭐<span>Rewards</span></button>
+  <button onclick="chooseMood('surprise')">💜<span>My Space</span></button>
+</nav>
+
+<script>
+  let points = 0;
+
+  function addPoint(amount) {
+    points += amount;
+    document.getElementById("points").textContent = points;
+  }
+
+  function challenge() {
+    const challenges = [
+      "Name 3 things that make you smile!",
+      "Invent a new word and explain it!",
+      "Do your best robot impression!",
+      "Think of a name for a friendly alien!",
+      "Describe your day using only 3 words!"
+    ];
+
+    const pick = challenges[Math.floor(Math.random() * challenges.length)];
+    document.getElementById("challenge-result").textContent = pick;
+    addPoint(10);
+  }
+
+  function chooseMood(mood) {
+    const messages = {
+      laugh: "Your mission: find something silly and make today a little funnier 😂",
+      brain: "Brain mode activated! Try a puzzle or a tricky riddle 🧠",
+      discover: "Time to discover something surprising about yourself 🔮",
+      surprise: "Plot twist! Your next adventure is completely unexpected 🎁"
+    };
+
+    document.getElementById("mood-result").textContent = messages[mood];
+  }
+
+  function reveal() {
+    document.getElementById("answer").textContent = "A clock! 🕰️";
+    addPoint(10);
+  }
+
+  function home() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+</script>
+
+</body>
+</html>
